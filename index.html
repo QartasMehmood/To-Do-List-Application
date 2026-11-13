@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+            <div class="brand">
+                <div class="brand-icon">✓</div>
+                <div>
+                    <h1>TaskFlow</h1>
+                    <p>Your day, organised.</p>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-button" aria-label="Toggle dark mode">
+                ☾
+            </button>
+        </header>
+
+        <main>
+            <section class="welcome">
+                <p class="date" id="currentDate"></p>
+                <h2>Manage your tasks<span>.</span></h2>
+                <p class="subtitle">A little progress each day adds up to big results.</p>
+            </section>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <span class="stat-icon">📋</span>
+                    <p>Total Tasks</p>
+                    <h3 id="totalCount">0</h3>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">✓</span>
+                    <p>Completed</p>
+                    <h3 id="completedCount">0</h3>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">◷</span>
+                    <p>Pending</p>
+                    <h3 id="pendingCount">0</h3>
+                </div>
+            </section>
+
+            <section class="task-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h2>My Tasks</h2>
+                        <p>Keep track of what needs to get done.</p>
+                    </div>
+                </div>
+
+                <form id="taskForm" class="task-form">
+                    <input type="text" id="taskInput" placeholder="What do you need to do?" maxlength="120" required>
+
+                    <select id="priorityInput" aria-label="Task priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="High">High</option>
+                    </select>
+
+                    <input type="date" id="dueDateInput" aria-label="Due date">
+
+                    <button type="submit" class="add-button">+ Add Task</button>
+                </form>
+
+                <div class="toolbar">
+                    <div class="filters">
+                        <button class="filter-button active" data-filter="all">All</button>
+                        <button class="filter-button" data-filter="pending">Pending</button>
+                        <button class="filter-button" data-filter="completed">Completed</button>
+                    </div>
+
+                    <input type="search" id="searchInput" class="search-input" placeholder="Search tasks..."
+                        aria-label="Search tasks">
+                </div>
+
+                <div id="taskList" class="task-list"></div>
+
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">✦</div>
+                    <h3>No tasks here yet</h3>
+                    <p>Add a task above and start making progress!</p>
+                </div>
+
+                <div class="list-footer">
+                    <span id="taskSummary">0 tasks</span>
+                    <button id="clearCompleted" class="clear-button">
+                        Clear completed
+                    </button>
+                </div>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>Made with focus and purpose. © 2026 TaskFlow</p>
+        </footer>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
